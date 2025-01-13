@@ -3,6 +3,10 @@ sidebar_label: localization
 title: localization
 ---
 
+:::caution Native feature now available
+A new [native localization feature](https://www.twilio.com/docs/flex/end-user-guide/change-display-language) is available in Flex UI 2.10 and later. To use the native feature, navigate to Flex > Admin > Features > Beta, and enable the toggle for "Enable language selection". It will then be available after reloading Flex. The native feature has limited languages available, so the template feature remains available with support for additional languages, however both features cannot be enabled simultaneously.
+:::
+
 ## Feature summary
 
 This feature provides a language selection dropdown in the Flex UI header, as well as several translations for built-in Flex UI strings. You may also extend this feature to support additional languages as needed.

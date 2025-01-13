@@ -6,7 +6,7 @@ title: device-manager
 This feature is intended to demonstrate how to use web APIs to select audio devices and apply them for use within Flex, specifically with the Flex Voice Client.
 
 :::caution Deprecated
-This feature has been replaced by [the native device manager feature](https://www.twilio.com/docs/flex/end-user-guide/initial-audio-device-check#how-do-i-switch-audio-devices-public-beta) in Flex UI 2.6 and later. To use the native feature, navigate to Flex > Admin > Features > Beta, and enable the toggle for Device Manager. It will then be visible after reloading Flex.
+This feature has been replaced by [the native device manager feature](https://www.twilio.com/docs/flex/end-user-guide/initial-audio-device-check#how-do-i-switch-audio-devices) in Flex UI 2.8 and later. To use the native feature, navigate to Flex > Admin > Features, and enable the toggle for Device Manager. It will then be visible after reloading Flex. The template feature remains available as the native feature resets the input device for each call.
 :::
 
 ---
@@ -33,3 +33,5 @@ To enable the `Device Manager` feature, under the `flex-config` attributes set t
     "input_select": true
 }
 ```
+
+It is recommended to also [disable the `initialDeviceCheck` setting](https://www.twilio.com/docs/flex/end-user-guide/initial-audio-device-check#how-do-i-turn-the-audio-device-check-feature-on--off) to prevent the selected input device from being reset for each call.
