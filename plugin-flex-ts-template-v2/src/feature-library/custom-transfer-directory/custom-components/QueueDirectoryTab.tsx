@@ -218,16 +218,15 @@ const QueueDirectoryTab = (props: OwnProps) => {
       })
       .filter((queue) => {
         const attributes = workerClient?.attributes as CustomWorkerAttributes;
-        const enforcedQueueFilter = attributes?.enforcedQueueFilter?.toLocaleLowerCase();
+        // This will work with both "filterString" and ["filter1", "filter2"] formats.
+        const enforcedQueueFilter = attributes?.enforcedQueueFilter;
         if (enforceQueueFilterFromWorker() && enforcedQueueFilter) {
-          return queue.name.toLocaleLowerCase().includes(enforcedQueueFilter);
-        }
-        return queue;
-      })
-      .filter((queue) => {
-        const enforcedQueueFilter = getGlobalFilter().toLocaleLowerCase();
-        if (shouldEnforceGlobalFilter() && enforcedQueueFilter) {
-          return !queue.name.toLocaleLowerCase().includes(enforcedQueueFilter);
+          if (Array.isArray(enforcedQueueFilter)) {
+            return enforcedQueueFilter.some(filter => 
+              queue.name.toLocaleLowerCase().includes(filter.toLocaleLowerCase())
+            );
+          }
+          return queue.name.toLocaleLowerCase().includes(enforcedQueueFilter.toLocaleLowerCase());
         }
         return queue;
       })

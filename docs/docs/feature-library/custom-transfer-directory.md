@@ -66,6 +66,8 @@ Example worker attribute setting for when the `enforce_queue_filter_from_worker_
 ```javascript
 worker.attributes : {
   enforcedQueueFilter : "TEAM A" // example filter that will include only queues with TEAM A in the name
+  // OR using array format for multiple filters
+  enforcedQueueFilter : ["TEAM A", "TEAM B"] // will include queues that match any of these filters
 }
 ```
 
